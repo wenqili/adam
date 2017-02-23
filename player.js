@@ -80,9 +80,11 @@ var Player = function(type) {
             var now = Tone.now();
             player.start(now);
             player.start(now + 1);
+            player.start(now + 2);
             player.start(now + 4);
+            player.start(now + 8);
         })
-        console.log("play 3 times",soundURL[randomInt]);
+        console.log("play 5 times",soundURL[randomInt]);
 
 
     }
@@ -127,7 +129,7 @@ var Player = function(type) {
         Tone.Buffer.on('load', function(){
           Tone.Transport.start().stop("+1.5").start("+4")
         })
-        console.log("play schedule osc and playe", soundURL[randomInt]);
+        console.log("play schedule osc and player", soundURL[randomInt]);
 
 
     }
@@ -145,7 +147,7 @@ var Player = function(type) {
         osc.frequency.rampTo(freqs[fIndex], 0.5, time);
         fIndex = (fIndex + 1) % freqs.length
         osc.start(time).stop(time+5)
-        player.start(time+1).stop(time+6)
+        // player.start(time+1).stop(time+6)
       }
 
       Tone.Transport.scheduleRepeat(oscCallback,1, 5)
